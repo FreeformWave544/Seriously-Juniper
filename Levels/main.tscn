@@ -30,5 +30,7 @@ centered = false
 
 [node name="Player" parent="." unique_id=2072217823 instance=ExtResource("1_gnif3")]
 
-[node name="Slime" parent="." unique_id=1198666618 instance=ExtResource("2_lwy2l")]
+[node name="Slimes" type="Node" parent="." unique_id=1062139162]
+
+[node name="Slime" parent="Slimes" unique_id=1198666618 instance=ExtResource("2_lwy2l")]
 position = Vector2(394, 0)

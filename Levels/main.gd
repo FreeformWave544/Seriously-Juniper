@@ -6,3 +6,5 @@ func _physics_process(delta: float) -> void:
 			var col = $Player.get_slide_collision(i)
 			if col.get_collider() is RigidBody2D:
 				col.get_collider().apply_force(col.get_normal() * -($Player.direction.length() * 100.0))
+	for slime in $Slimes.get_children():
+		slime.global_position = lerp(slime.global_position, $Player.global_position, delta / 2.0)
