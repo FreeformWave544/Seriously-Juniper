@@ -7,7 +7,7 @@ radius = 100.0
 
 [sub_resource type="Gradient" id="Gradient_mv1ah"]
 offsets = PackedFloat32Array(0.77710843, 0.78313255)
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+colors = PackedColorArray(1, 1, 1, 1, 0, 1, 0.5529412, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_mv1ah"]
 gradient = SubResource("Gradient_mv1ah")
@@ -17,6 +17,7 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [node name="Player" type="CharacterBody2D" unique_id=2072217823]
+collision_mask = 3
 script = ExtResource("1_mv1ah")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1810757799]
@@ -25,3 +26,8 @@ shape = SubResource("CircleShape2D_g8kv5")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1601709905]
 scale = Vector2(40, 40)
 texture = SubResource("GradientTexture2D_mv1ah")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=664803025]
+process_callback = 0
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true

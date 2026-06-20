@@ -1,3 +1,34 @@
 [gd_scene format=3 uid="uid://cyfgyuorujqct"]
 
+[ext_resource type="PackedScene" uid="uid://ce18k0b605u7p" path="res://Entities/Player/player.tscn" id="1_gnif3"]
+[ext_resource type="Script" uid="uid://c8t7q5qj6fk08" path="res://Levels/main.gd" id="1_lwy2l"]
+[ext_resource type="PackedScene" uid="uid://cg1ubqmw3w0po" path="res://Entities/Enemies/slime.tscn" id="2_lwy2l"]
+
+[sub_resource type="Gradient" id="Gradient_lwy2l"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_45o1r"]
+noise_type = 4
+fractal_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g8kv5"]
+width = 1152
+height = 648
+noise = SubResource("FastNoiseLite_45o1r")
+color_ramp = SubResource("Gradient_lwy2l")
+seamless = true
+
 [node name="Main" type="Node2D" unique_id=1928971000]
+script = ExtResource("1_lwy2l")
+
+[node name="BG" type="Parallax2D" parent="." unique_id=813056736]
+z_index = -5
+repeat_size = Vector2(1152, 648)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG" unique_id=554832800]
+texture = SubResource("NoiseTexture2D_g8kv5")
+centered = false
+
+[node name="Player" parent="." unique_id=2072217823 instance=ExtResource("1_gnif3")]
+
+[node name="Slime" parent="." unique_id=1198666618 instance=ExtResource("2_lwy2l")]
+position = Vector2(394, 0)
