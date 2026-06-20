@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://c04psphfd3kfl"]
+
+[ext_resource type="Script" uid="uid://bi6t4derguym1" path="res://UI/main_menu.gd" id="1_p8ccj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5yyqw"]
+font_size = 32
+font_color = Color(0.84313726, 0, 0, 1)
+outline_size = 5
+
+[node name="MainMenu" type="Control" unique_id=528662086]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p8ccj")
+
+[node name="Panel" type="Panel" parent="." unique_id=604838963]
+custom_minimum_size = Vector2(1082, 578)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel" unique_id=551802126]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer" unique_id=501669766]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="Panel/CenterContainer/VBoxContainer" unique_id=2142304468]
+layout_mode = 2
+text = "The Very Serious, Very Thoughtout Game."
+label_settings = SubResource("LabelSettings_5yyqw")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer/VBoxContainer" unique_id=954664160]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_visual_only = false
+alignment = 1
+
+[node name="Start" type="Button" parent="Panel/CenterContainer/VBoxContainer/VBoxContainer" unique_id=362792749]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.4, 0.4)
+offset_transform_visual_only = false
+theme_override_font_sizes/font_size = 64
+text = "START"
