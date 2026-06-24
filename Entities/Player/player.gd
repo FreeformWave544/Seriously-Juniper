@@ -8,6 +8,13 @@ class_name Player
 @export var health := 100.0
 const JUMP_VELOCITY = -400.0
 
+@export var abilityList := {
+	"Lazer": {
+		"Rarity": "Common",
+		"Func": lazer()
+	}
+}
+var ability := ""
 var direction := Vector2.ZERO
 func _physics_process(delta: float) -> void:
 	direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -21,10 +28,18 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"): base_spin_speed *= 2.0
 	modulate.b = health / max_health * (spin_speed / 200.0)
 	modulate.g = health / max_health * (spin_speed / 200.0)
+	if Input.is_action_just_pressed("AbilitySpin"):
+		for i in range(50):
+			rotation_degrees -= 10.0
+			await get_tree().process_frame
+		ability = abilityList.keys().pick_random()
+		print(ability, " -=- ", abilityList[ability]["Func"])
 	move_and_slide()
 
 func damage(dmg) -> void:
 	health -= dmg
 	spin_speed = lerp(base_spin_speed, 0.0, 1.0 - health / max_health)
-	print(1.0 - health / max_health)
 	if spin_speed <= 0.0: get_tree().reload_current_scene()
+
+func lazer(time := 5.0):
+	return time
